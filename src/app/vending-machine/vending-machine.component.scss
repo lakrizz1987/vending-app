@@ -1,0 +1,138 @@
+.vending-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+    background: #111;
+
+    .vending-box {
+        width: 50%;
+        background: linear-gradient(145deg, #222, #111);
+        border-radius: 14px;
+        padding: 25px;
+        box-shadow:
+            0 0 25px rgba(0, 255, 255, 0.2),
+            inset 0 0 15px rgba(0, 255, 255, 0.1);
+        border: 2px solid #333;
+
+        .message {
+            width: 100%;
+            color: white;
+            font-size: 22px;
+            font-weight: bold;
+            border: 2px solid #444;
+            box-shadow: inset 0 0 15px rgba(0, 255, 255, 0.3);
+            border-radius: 8px;
+            padding: 10px 8px;
+            text-align: center;
+            animation:  colorChange 3s linear infinite;
+        }
+
+
+        @keyframes colorChange {
+            0% {
+                color: white;
+            }
+
+            33% {
+                color: #0ff;
+            }
+
+            66% {
+                color: yellow;
+            }
+
+            100% {
+                color: white;
+            }
+        }
+
+        .currency-box {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            .currency-input {
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                padding: 10px;
+                background: #000;
+                border-radius: 8px;
+                border: 2px solid #444;
+                box-shadow: inset 0 0 15px rgba(0, 255, 255, 0.3);
+
+                input {
+                    background: #111;
+                    border: none;
+                    padding: 10px;
+                    font-size: 18px;
+                    color: #0ff;
+                    font-weight: bold;
+                    outline: none;
+                    text-align: center;
+
+                    &:focus {
+                        outline: 1px solid #0ff;
+                    }
+                }
+
+                select {
+                    background: #111;
+                    border: none;
+                    padding: 10px;
+                    color: #0ff;
+                    font-size: 16px;
+                    font-weight: bold;
+                    outline: none;
+                    cursor: pointer;
+
+                    &:hover {
+                        color: #fff;
+                    }
+                }
+
+                .balnce-container {
+                    text-align: right;
+                    color: #0ff;
+                    font-size: 14px;
+
+                    p {
+                        margin: 0;
+                    }
+
+                    .balance-count {
+                        font-size: 20px;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+
+        .insert-btn {
+            width: 50%;
+            padding: 15px;
+            font-size: 18px;
+            text-transform: uppercase;
+            border: none;
+            color: #000;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            align-self: center;
+            background: linear-gradient(145deg, #ffec00, #ffcf00);
+            transition: 0.10s;
+
+            &:hover {
+                transform: scale(1.02);
+            }
+
+            &:active {
+                transform: translateY(6px);
+                box-shadow:
+                    0 0 0 #c49e00,
+                    0 3px 5px rgba(0, 0, 0, 0.6);
+            }
+        }
+    }
+}

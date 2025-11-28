@@ -1,1 +1,23 @@
-<p>vending-machine works!</p>
+<div class="vending-container">
+    <div class="vending-box">
+        <p class="message">
+           <span>{{displayMessage}}</span> 
+        </p>
+        <div class="currency-box">
+            <div class="currency-input">
+                <input type="number" placeholder="0.00" step="0.05" [(ngModel)]="amount">
+                <select [(ngModel)]="currency">
+                    <option value="BGN">BGN</option>
+                    <option value="EUR">EUR</option>
+                    <option value="USD">USD</option>
+                </select>
+                <div class="balnce-container">
+                    <p>Balance:</p>
+                    <p class="balance-count">{{balance}}</p>
+                </div>
+            </div>
+            <button (click)="insertMoney()" class="insert-btn">Insert Coin</button>
+            <button (click)="balance > 0 && onCancel()" class="insert-btn">Cancel</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Cola",
+    "price": 1.5,
+    "quantity": 10,
+    "maxQuantity": 15
+  },
+  {
+    "title": "Fanta",
+    "price": 1.4,
+    "quantity": 8,
+    "maxQuantity": 15
+  },
+  {
+    "title": "Sprite",
+    "price": 1.5,
+    "quantity": 12,
+    "maxQuantity": 15
+  },
+  {
+    "title": "Chips",
+    "price": 2,
+    "quantity": 5,
+    "maxQuantity": 15
+  },
+  {
+    "title": "Water",
+    "price": 1,
+    "quantity": 15,
+    "maxQuantity": 15
+  },
+  {
+    "title": "Chocolate",
+    "price": 2.5,
+    "quantity": 7,
+    "maxQuantity": 15
+  }
+]

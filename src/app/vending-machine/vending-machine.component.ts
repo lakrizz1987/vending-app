@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ProductService } from '../../assets/product.service';
 
 @Component({
   selector: 'app-vending-machine',
@@ -8,6 +9,15 @@ import { Component } from '@angular/core';
   standalone: true
 })
 
-export class VendingMachine {
+export class VendingMachine implements OnInit {
+  constructor(private productService: ProductService) {
 
+  }
+
+  ngOnInit(){
+    setTimeout(()=>{
+
+      this.productService.getProducts().subscribe(p => console.log(p))
+    },2000)
+  }
 }

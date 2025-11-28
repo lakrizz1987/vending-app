@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { Paths } from '../enums/Paths.enum';
+import { Paths } from './enums/Paths.enum';
 import { VendingMachine } from './vending-machine/vending-machine.component';
 import { SettingsComponent } from './settings-component/settings.component';
 

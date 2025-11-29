@@ -1,0 +1,29 @@
+:host {
+  display: inline-block; /* или flex: 0 0 40% ако искаш flex */
+  width: 40%;            /* за да заема 40% от реда */
+}
+button {
+    width: 100%;
+    padding: 15px 5px;
+
+    text-transform: uppercase;
+    border: none;
+    color: #000;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    align-self: center;
+    background: linear-gradient(145deg, #ffec00, #ffcf00);
+    transition: scale 0.10s;
+
+    &:hover {
+        transform: scale(1.02);
+    }
+
+    &:active {
+        transform: translateY(6px);
+        box-shadow:
+            0 0 0 #c49e00,
+            0 3px 5px rgba(0, 0, 0, 0.6);
+    }
+}

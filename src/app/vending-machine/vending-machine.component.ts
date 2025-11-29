@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../assets/product.service';
 import { FormsModule } from '@angular/forms';
+import { PurchaseButton } from "../purchase-button/purchase-button.component";
+import { Product } from '../services/product-service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-vending-machine',
-  imports: [FormsModule],
+  imports: [FormsModule, PurchaseButton, CommonModule],
   templateUrl: './vending-machine.component.html',
   styleUrl: './vending-machine.component.scss',
   standalone: true
@@ -19,6 +22,7 @@ export class VendingMachine implements OnInit {
   currency: string = 'BGN';
   balance: number = 0;
   displayMessage: string = VendingMessages.INSERT_COIN;
+  products: Product[] = [];
 
   constructor(
     private productService: ProductService
@@ -27,7 +31,7 @@ export class VendingMachine implements OnInit {
   ngOnInit() {
     setTimeout(() => {
 
-      this.productService.getProducts().subscribe(p => console.log(p))
+      this.productService.getProducts().subscribe(p => this.products = p)
     }, 2000)
   }
 

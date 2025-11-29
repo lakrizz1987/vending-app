@@ -1,7 +1,7 @@
 <div class="vending-container">
     <div class="vending-box">
         <p class="message">
-           <span>{{displayMessage}}</span> 
+            <span>{{displayMessage}}</span>
         </p>
         <div class="currency-box">
             <div class="currency-input">
@@ -17,7 +17,10 @@
                 </div>
             </div>
             <button (click)="insertMoney()" class="insert-btn">Insert Coin</button>
-            <button (click)="balance > 0 && onCancel()" class="insert-btn">Cancel</button>
+            <button (click)="balance > 0 && onCancel()" class="cancel-btn">Cancel</button>
+        </div>
+        <div *ngIf="products.length > 0" class="purchase-buttons-container">
+            <app-purchase-button *ngFor="let product of products" [product]="product"></app-purchase-button>
         </div>
     </div>
 </div>

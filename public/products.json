@@ -3,7 +3,7 @@
     "id": 1,
     "title": "Cola",
     "price": 1.5,
-    "quantity": 10,
+    "quantity": 2,
     "maxQuantity": 15
   },
   {

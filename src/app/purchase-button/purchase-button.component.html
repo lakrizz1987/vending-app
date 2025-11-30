@@ -1,1 +1,1 @@
-<button>{{product.title}}</button>
+<button [disabled]="product.quantity === 0" (click)="buyProduct()">{{product.title}}  {{product.price.toFixed(2)}} BGN</button>

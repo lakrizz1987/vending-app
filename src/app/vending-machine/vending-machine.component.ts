@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../../assets/product.service';
 import { FormsModule } from '@angular/forms';
 import { PurchaseButton } from "../purchase-button/purchase-button.component";
-import { Product } from '../services/product-service';
+import { Product, ProductService } from '../services/product-service';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -18,7 +17,7 @@ export class VendingMachine implements OnInit {
     BGN: [0.05, 0.1, 0.2, 0.5, 1, 2]
   };
 
-  amount: number = 0;
+  amount: number | null = null;
   currency: string = 'BGN';
   balance: number = 0;
   displayMessage: string = VendingMessages.INSERT_COIN;
@@ -29,10 +28,8 @@ export class VendingMachine implements OnInit {
   ) { }
 
   ngOnInit() {
-    setTimeout(() => {
-
-      this.productService.getProducts().subscribe(p => this.products = p)
-    }, 2000)
+    this.productService.getProducts();
+    this.productService.productsSubject.subscribe(p => this.products = p);
   }
 
   insertMoney() {
@@ -42,10 +39,10 @@ export class VendingMachine implements OnInit {
 
     if (this.isValidCoin(this.amount, this.currency)) {
       this.balance = Number((this.balance + this.amount).toFixed(2));
-      this.amount = 0;
+      this.amount = null;
     } else {
       this.changeDisplayMessage(VendingMessages.INVALID_COIN);
-      this.amount = 0;
+      this.amount = null;
     }
   }
 
@@ -54,16 +51,21 @@ export class VendingMachine implements OnInit {
   }
 
   onCancel() {
-    this.amount = 0;
+    this.amount = null;
     this.balance = 0;
     this.changeDisplayMessage(VendingMessages.ORDER_CANCELED);
   }
 
-  changeDisplayMessage(message: VendingMessages) {
+  changeDisplayMessage(message: VendingMessages | string) {
     this.displayMessage = message;
     setTimeout(() => {
       this.displayMessage = VendingMessages.INSERT_COIN;
     }, 5000);
+  }
+
+  onPurchase(message: string) {
+    this.balance = 0;
+    this.changeDisplayMessage(message);
   }
 }
 
@@ -75,7 +77,8 @@ type CoinsMap = {
 export enum VendingMessages {
   INSERT_COIN = 'Please insert coin !',
   INVALID_COIN = 'Invalid coin !!!',
-  TAKE_PURCHASE = 'Please take your purchase !',
-  ORDER_CANCELED = 'Order canceled, please take your coins !'
+  TAKE_PURCHASE = 'Please take your order!',
+  TAKE_PURCHASE_AND_CHANGE = 'Please take your order and your change!',
+  ORDER_CANCELED = 'Order canceled, please take your coins!'
 }
 

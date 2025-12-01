@@ -83,6 +83,10 @@
                     outline: none;
                     text-align: center;
 
+                    &:focus {
+                        border-color: $textColor;
+                    }
+
                     @media (max-width: #{$maxTabletWidth}) {
                         width: 80%;
                     }

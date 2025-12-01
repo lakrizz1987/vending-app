@@ -1,7 +1,14 @@
+@use '../definition' as *;
+
 :host {
-  display: inline-block; /* или flex: 0 0 40% ако искаш flex */
-  width: 40%;            /* за да заема 40% от реда */
+    display: inline-block;
+    width: 40%;
+
+    @media (max-width: #{$maxTabletWidth}) {
+        width: 100%;
+    }
 }
+
 button {
     width: 100%;
     padding: 15px 5px;
@@ -13,7 +20,7 @@ button {
     border-radius: 8px;
     cursor: pointer;
     align-self: center;
-    background: linear-gradient(145deg, #ffec00, #ffcf00);
+    background: $btnYellow;
     transition: scale 0.10s;
 
     &:hover {

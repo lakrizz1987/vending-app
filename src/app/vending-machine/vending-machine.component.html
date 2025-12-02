@@ -19,12 +19,12 @@
             <button (click)="insertMoney()" class="insert-btn">Insert Coin</button>
             <button (click)="balance > 0 && onCancel()" class="cancel-btn">Cancel</button>
         </div>
-        <div *ngIf="products.length > 0" class="purchase-buttons-container">
-            <app-purchase-button *ngFor="let product of products" 
-                [currentBalance]="balance"
-                [product]="product"
+        @if (products.length > 0) {
+        <div class="purchase-buttons-container">
+            <app-purchase-button *ngFor="let product of products" [currentBalance]="balance" [product]="product"
                 (purchaseDone)="onPurchase($event)">
             </app-purchase-button>
         </div>
+        }
     </div>
 </div>

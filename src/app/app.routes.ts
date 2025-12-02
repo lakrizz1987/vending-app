@@ -8,5 +8,5 @@ export const routes: Routes = [
     { path: '', component: VendingMachine },
     { path: Paths.Home, component: VendingMachine },
     { path: Paths.Settings, component: SettingsComponent },
-    { path: Paths.Create, component: AddProduct },
+    { path: Paths.AddProduct, component: AddProduct },
 ];

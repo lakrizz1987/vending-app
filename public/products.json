@@ -1,56 +1,56 @@
 [
   {
     "id": 1,
-    "title": "Cola",
+    "name": "Cola",
     "price": 1.5,
     "quantity": 2,
     "maxQuantity": 15
   },
   {
     "id": 2,
-    "title": "Fanta",
+    "name": "Fanta",
     "price": 1.4,
     "quantity": 8,
     "maxQuantity": 15
   },
   {
     "id": 3,
-    "title": "Sprite",
+    "name": "Sprite",
     "price": 1.5,
     "quantity": 12,
     "maxQuantity": 15
   },
   {
     "id": 4,
-    "title": "Chips",
+    "name": "Chips",
     "price": 2,
     "quantity": 5,
     "maxQuantity": 15
   },
   {
     "id": 5,
-    "title": "Water",
+    "name": "Water",
     "price": 1,
     "quantity": 15,
     "maxQuantity": 15
   },
   {
     "id": 6,
-    "title": "Chocolate",
+    "name": "Chocolate",
     "price": 2.5,
     "quantity": 7,
     "maxQuantity": 15
   },
   {
     "id": 7,
-    "title": "Peanuts",
+    "name": "Peanuts",
     "price": 1.8,
     "quantity": 6,
     "maxQuantity": 15
   },
   {
     "id": 8,
-    "title": "Juice",
+    "name": "Juice",
     "price": 2,
     "quantity": 9,
     "maxQuantity": 15

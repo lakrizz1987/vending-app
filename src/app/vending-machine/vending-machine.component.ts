@@ -28,8 +28,9 @@ export class VendingMachine implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.productService.getProducts();
-    this.productService.productsSubject.subscribe(p => this.products = p);
+    this.productService.productsSubject.subscribe(p => {
+      this.products = p
+    });
   }
 
   insertMoney() {

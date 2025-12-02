@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
+import { v4 as uuidv4 } from 'uuid';
 
 @Injectable({
   providedIn: 'root',
@@ -10,9 +11,11 @@ export class ProductService {
   products: Product[] = [];
   productsSubject = new BehaviorSubject<Product[]>(this.products);
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.getProducts();
+  }
 
-  getProducts(): void {
+  getProducts() {
     this.http.get<Product[]>('assets/products.json').subscribe(products => {
       this.products = products;
       this.productsSubject.next(products);
@@ -26,13 +29,25 @@ export class ProductService {
     );
 
     this.productsSubject.next(this.products);
-    console.log(this.products)
+  }
+
+  addProduct(name: string, quantity: number, price: number) {
+    const id = uuidv4();
+    const newProduct: Product = {
+      id: id,
+      name: name,
+      price: price,
+      quantity: quantity,
+      maxQuantity: 15
+    };
+    this.products.push(newProduct);
+    this.productsSubject.next(this.products);
   }
 }
 
 export interface Product {
   id: string | number;
-  title: string;
+  name: string;
   price: number;
   quantity: number;
   maxQuantity: number;

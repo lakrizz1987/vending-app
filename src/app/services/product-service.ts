@@ -4,7 +4,7 @@ import { BehaviorSubject } from 'rxjs';
 import { v4 as uuidv4 } from 'uuid';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 
 export class ProductService {
@@ -16,10 +16,10 @@ export class ProductService {
   }
 
   getProducts() {
-    this.http.get<Product[]>('assets/products.json').subscribe(products => {
-      this.products = products;
+      this.http.get<Product[]>('assets/products.json').subscribe(products => {
+        this.products = products;
       this.productsSubject.next(products);
-    });
+      });
   }
 
   purchaseProduct(product: Product) {
@@ -41,6 +41,11 @@ export class ProductService {
       maxQuantity: 15
     };
     this.products.push(newProduct);
+    this.productsSubject.next(this.products);
+  }
+
+  deleteProduct(id: Product["id"]) {
+    this.products = this.products.filter(p => p.id.toString() !== id.toString());
     this.productsSubject.next(this.products);
   }
 }

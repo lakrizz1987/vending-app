@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Product, ProductService } from '../services/product-service';
 
 @Component({
   selector: 'app-settings-component',
@@ -7,6 +8,20 @@ import { Component } from '@angular/core';
   styleUrl: './settings.component.scss',
   standalone: true
 })
-export class SettingsComponent {
+export class SettingsComponent implements OnInit {
+  products: Product[] = [];
 
+  constructor(
+    private productService: ProductService
+  ) { }
+
+  ngOnInit() {
+    this.productService.productsSubject.subscribe(p => {
+      this.products = p
+    });
+  }
+
+  onDelete(id: Product["id"]) {
+    this.productService.deleteProduct(id);
+  }
 }

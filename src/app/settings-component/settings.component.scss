@@ -1,0 +1,120 @@
+@use '../definition' as *;
+
+.form-container {
+    width: 100%;
+    min-height: 100vh;
+    background: black;
+    padding: 40px 20px;
+
+    h2 {
+        color: $textColor;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 36px;
+        text-decoration: underline;
+        text-underline-offset: 12px;
+    }
+
+    .three-input-row {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 18px;
+        border-bottom: 2px solid $borderColor;
+
+        &:nth-of-type(1){
+            border-top: 2px solid $borderColor;
+        }
+
+        @media (max-width: #{$maxTabletWidth}) {
+            flex-wrap: wrap;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            width: 20%;
+
+            @media (max-width: #{$maxTabletWidth}) {
+                width: 50%;
+            }
+
+            label {
+                font-size: 14px;
+                color: $textColor;
+                font-weight: bold;
+                margin-bottom: 4px;
+                text-align: center;
+            }
+
+            input {
+                background: $primaryBackroundColor;
+                border: 2px solid $borderColor;
+                padding: 10px;
+                font-size: 16px;
+                color: $textColor;
+                font-weight: bold;
+                text-align: center;
+                outline: none;
+                width: 100%;
+
+                &:focus {
+                    border: 2px solid $textColor;
+                }
+            }
+        }
+
+        .btn-group {
+            align-self: end;
+            display: flex;
+            gap: 10px;
+
+            @media (max-width: #{$maxTabletWidth}) {
+                align-self: unset;
+                width: 100%;
+                justify-content: center;
+                margin-top: 36px;
+            }
+        }
+
+        .edit-btn,
+        .delete-btn {
+            min-height: 44px;
+            padding: 10px 14px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.1s;
+            color: black;
+            align-self: baseline;
+
+            @media (max-width: #{$maxTabletWidth}) {
+                width: 35%;
+            }
+
+            &:hover {
+                transform: scale(1.05);
+            }
+
+            &:active {
+                transform: translateY(4px);
+            }
+        }
+
+        .edit-btn {
+            background: $btnYellow;
+        }
+
+        .delete-btn {
+            background: red;
+            color: white;
+        }
+    }
+
+}

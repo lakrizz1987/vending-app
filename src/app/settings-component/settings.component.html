@@ -1,1 +1,27 @@
-<p>settings-component works!</p>
+<div class="form-container">
+    <h2>Settings</h2>
+    @for (product of products; track $index) {
+    <div class="three-input-row">
+        <div class="input-group">
+            <label for="name">Name:</label>
+            <input disabled="true" id="name" type="text" value="{{product.name}}">
+        </div>
+
+        <div class="input-group">
+            <label for="quantity">Quantity:</label>
+            <input min="1" max="15" id="quantity" type="number" value="{{product.quantity}}">
+        </div>
+
+        <div class="input-group">
+            <label for="price">Price:</label>
+            <input type="number" id="price" type="text" value="{{product.price}}">
+        </div>
+
+        <div class="btn-group">
+            <button class="edit-btn">Edit</button>
+            <button class="delete-btn" (click)="onDelete(product.id)">Delete</button>
+        </div>
+    </div>
+    }
+
+</div>

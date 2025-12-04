@@ -12,6 +12,8 @@ import { Paths } from '../enums/Paths.enum';
 export class LoginComponent {
   username: string = '';
   password: string = '';
+  usernameError: string | null = null;
+  passwordError: string | null = null;
 
   constructor(private router: Router) {
 
@@ -19,14 +21,13 @@ export class LoginComponent {
 
   login() {
     if (!this.username) {
-    
+      this.usernameError = 'Username is required';
     }
     if (!this.password) {
-      
+      this.passwordError = 'Password is required';
     }
 
     if (!this.usernameError && !this.passwordError) {
-      // Тук сложи логика за автентикация
       console.log('Logging in:', this.username, this.password);
     }
   }

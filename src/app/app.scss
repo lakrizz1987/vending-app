@@ -1,5 +1,47 @@
+@use './definition' as *;
+
 .view-wrapper {
     width: 100%;
     min-height: 100vh;
     overflow-x: hidden;
+    background-color: $primaryBackroundColor;
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 16px 32px;
+        color: $textColor;
+
+        @media (max-width: #{$maxMobileWidth}) {
+            flex-direction: column;
+        }
+
+        button {
+            padding: 15px;
+            font-size: 18px;
+            text-transform: uppercase;
+            border: none;
+            color: black;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            background: $btnYellow;
+            transition: 0.10s;
+
+            &:hover {
+                transform: scale(1.02);
+            }
+
+            @media (max-width: #{$maxMobileWidth}) {
+                width: 50%;
+            }
+
+            &.hide {
+                opacity: 0;
+            }
+
+        }
+    }
 }

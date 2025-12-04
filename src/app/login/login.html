@@ -1,0 +1,22 @@
+<div class="login-form">
+    <h2>Login</h2>
+
+    <div class="login-input">
+        <label>Username:</label>
+        <input type="text" placeholder="Enter username" [(ngModel)]="username">
+        @if(usernameError){
+            <p class="error">Invalid username!</p>
+        }
+    </div>
+
+    <div class="login-input">
+        <label>Password:</label>
+        <input type="password" placeholder="Enter password" [(ngModel)]="password">
+        @if(usernameError){
+            <p class="error">Invalid password!</p>
+        }
+    </div>
+
+    <button [disabled]="!username || !password" class="form-btn" (click)="login()">Login</button>
+    <button class="form-btn" (click)="onBack()">Back</button>
+</div>

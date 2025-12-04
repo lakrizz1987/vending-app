@@ -12,42 +12,67 @@ export class ProductService {
   productsSubject = new BehaviorSubject<Product[]>(this.products);
 
   constructor(private http: HttpClient) {
-    this.getProducts();
   }
 
   getProducts() {
-      this.http.get<Product[]>('assets/products.json').subscribe(products => {
-        this.products = products;
+    const navigationEntries = performance.getEntriesByType('navigation') as PerformanceNavigationTiming[];
+    const isReload = navigationEntries.length > 0 && navigationEntries[0].type === 'reload';
+
+    if (isReload) {
+      sessionStorage.removeItem('products');
+    }
+
+    const cached = sessionStorage.getItem('products');
+    if (cached) {
+      this.products = JSON.parse(cached);
+      this.productsSubject.next(this.products);
+      return;
+    }
+
+    this.http.get<Product[]>('assets/products.json').subscribe(products => {
+      this.products = products;
       this.productsSubject.next(products);
-      });
+      sessionStorage.setItem('products', JSON.stringify(products));
+    });
   }
 
   purchaseProduct(product: Product) {
-    const updatedProduct: Product = { ...product, quantity: product.quantity - 1 };
-    this.products = this.products.map(p =>
-      p.id === product.id ? updatedProduct : p
-    );
-
+    const updatedProduct = { ...product, quantity: product.quantity - 1 };
+    this.products = this.products.map(p => p.id === product.id ? updatedProduct : p);
     this.productsSubject.next(this.products);
+    sessionStorage.setItem('products', JSON.stringify(this.products));
   }
 
   addProduct(name: string, quantity: number, price: number) {
     const id = uuidv4();
-    const newProduct: Product = {
-      id: id,
-      name: name,
-      price: price,
-      quantity: quantity,
-      maxQuantity: 15
-    };
+    const newProduct: Product = { id, name, price, quantity, maxQuantity: 15, isEditing: false };
     this.products.push(newProduct);
     this.productsSubject.next(this.products);
+    sessionStorage.setItem('products', JSON.stringify(this.products));
   }
 
   deleteProduct(id: Product["id"]) {
-    this.products = this.products.filter(p => p.id.toString() !== id.toString());
+    this.products = this.products.filter(p => p.id !== id);
     this.productsSubject.next(this.products);
+    sessionStorage.setItem('products', JSON.stringify(this.products));
   }
+
+  editProduct(id: Product["id"], name: string, quantity: number, price: number) {
+    const index = this.products.findIndex(p => p.id === id);
+
+    const updatedProduct: Product = {
+      ...this.products[index],
+      name,
+      quantity,
+      price,
+      isEditing: false
+    };
+
+    this.products[index] = updatedProduct;
+    this.productsSubject.next(this.products);
+    sessionStorage.setItem('products', JSON.stringify(this.products));
+  }
+
 }
 
 export interface Product {
@@ -56,4 +81,5 @@ export interface Product {
   price: number;
   quantity: number;
   maxQuantity: number;
+  isEditing: boolean;
 }

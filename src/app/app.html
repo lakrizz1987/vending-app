@@ -1,4 +1,8 @@
 
 <div class="view-wrapper">
+  <div class="header">
+    <H1>Vending APP</H1>
+    <button [ngClass]="{'hide': !showLoginButton}" (click)="onLogin()">LogIn</button>
+  </div>
   <router-outlet></router-outlet>
 </div>

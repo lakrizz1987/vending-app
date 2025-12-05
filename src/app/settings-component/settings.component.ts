@@ -3,7 +3,6 @@ import { Product, ProductService } from '../services/product-service';
 
 @Component({
   selector: 'app-settings-component',
-  imports: [],
   templateUrl: './settings.component.html',
   styleUrl: './settings.component.scss',
   standalone: true

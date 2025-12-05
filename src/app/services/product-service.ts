@@ -11,8 +11,9 @@ export class ProductService {
   products: Product[] = [];
   productsSubject = new BehaviorSubject<Product[]>(this.products);
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(
+    private http: HttpClient
+  ) { }
 
   getProducts() {
     const navigationEntries = performance.getEntriesByType('navigation') as PerformanceNavigationTiming[];
@@ -44,6 +45,11 @@ export class ProductService {
   }
 
   addProduct(name: string, quantity: number, price: number) {
+    if (this.products.length === 15) {
+      alert('No empty slots available!');
+      return;
+    }
+    
     const id = uuidv4();
     const newProduct: Product = { id, name, price, quantity, maxQuantity: 15, isEditing: false };
     this.products.push(newProduct);

@@ -3,7 +3,7 @@
 
     <div class="login-input">
         <label>Username:</label>
-        <input type="text" placeholder="Enter username" [(ngModel)]="username">
+        <input type="text" placeholder="Enter username" [(ngModel)]="username" (ngModelChange)="usernameError = null">
         @if(usernameError){
             <p class="error">Invalid username!</p>
         }
@@ -11,8 +11,8 @@
 
     <div class="login-input">
         <label>Password:</label>
-        <input type="password" placeholder="Enter password" [(ngModel)]="password">
-        @if(usernameError){
+        <input type="password" placeholder="Enter password" [(ngModel)]="password" (ngModelChange)="passwordError = null">
+        @if(passwordError){
             <p class="error">Invalid password!</p>
         }
     </div>

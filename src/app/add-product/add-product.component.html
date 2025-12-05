@@ -1,6 +1,6 @@
 <div class="product-form">
-    <h2>Добавяне на продукт</h2>
-
+    <h2>Add Product</h2>
+    
     <div class="product-input">
         <label>Name:</label>
         <input type="text" 
@@ -10,7 +10,7 @@
             [(ngModel)]="name"
             (input)="isNameExist = false">
         @if(isNameExist) {
-        <p class="error">Name already exists!</p>
+            <p class="error">Name already exists!</p>
         }
     </div>
 

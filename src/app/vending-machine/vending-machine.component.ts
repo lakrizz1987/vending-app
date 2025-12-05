@@ -1,8 +1,8 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { PurchaseButton } from "../purchase-button/purchase-button.component";
 import { Product, ProductService } from '../services/product-service';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-vending-machine',
@@ -81,5 +81,5 @@ export enum VendingMessages {
   TAKE_PURCHASE = 'Please take your order!',
   TAKE_PURCHASE_AND_CHANGE = 'Please take your order and your change!',
   ORDER_CANCELED = 'Order canceled, please take your coins!'
-}
+};
 

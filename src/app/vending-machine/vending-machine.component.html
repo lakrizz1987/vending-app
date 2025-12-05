@@ -16,15 +16,19 @@
                     <p class="balance-count">{{balance.toFixed(2)}}</p>
                 </div>
             </div>
-            <button (click)="insertMoney()" class="insert-btn">Insert Coin</button>
-            <button (click)="balance > 0 && onCancel()" class="cancel-btn">Cancel</button>
+            <button class="insert-btn" (click)="insertMoney()">Insert Coin</button>
+            <button class="cancel-btn" (click)="balance > 0 && onCancel()">Cancel</button>
         </div>
         @if (products.length > 0) {
-        <div class="purchase-buttons-container">
-            <app-purchase-button *ngFor="let product of products" [currentBalance]="balance" [product]="product"
-                (purchaseDone)="onPurchase($event)">
-            </app-purchase-button>
-        </div>
+            <div class="purchase-buttons-container">
+                @for (product of products; track $index) {
+                    <app-purchase-button 
+                        [currentBalance]="balance" 
+                        [product]="product"
+                        (purchaseDone)="onPurchase($event)">
+                    </app-purchase-button>
+                }
+            </div>
         }
     </div>
 </div>

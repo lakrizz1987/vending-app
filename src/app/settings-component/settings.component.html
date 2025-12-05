@@ -4,26 +4,35 @@
         <div class="three-input-row">
         <div class="input-group">
             <label for="name">Name:</label>
-            <input #nameInput [disabled]="!product.isEditing"  id="name" type="text" value="{{product.name}}">
+            <input #nameInput [disabled]="!product.isEditing" type="text" id="name" value="{{product.name}}">
         </div>
 
         <div class="input-group">
             <label for="quantity">Quantity:</label>
-            <input #quantityInput [disabled]="!product.isEditing"  min="1" max="15" id="quantity" type="number" value="{{product.quantity}}">
+            <input #quantityInput [disabled]="!product.isEditing" type="number" id="quantity" min="1" max="15" value="{{product.quantity}}">
         </div>
 
         <div class="input-group">
             <label for="price">Price:</label>
-            <input #priceInput [disabled]="!product.isEditing"  type="number" id="price" type="text" value="{{product.price}}">
+            <input #priceInput [disabled]="!product.isEditing" type="number" id="price" type="text" value="{{product.price}}">
         </div>
 
         <div class="btn-group">
             @if (!product.isEditing) {
-                <button class="edit-btn" (click)="onEdit(product)">Edit</button>
+                <button class="edit-btn"
+                    (click)="onEdit(product)">
+                    Edit
+                </button>
             }@else{
-                <button class="edit-btn" (click)="onSave(product, nameInput.value, quantityInput.value, priceInput.value)">Save</button>
+                <button class="edit-btn" 
+                    (click)="onSave(product, nameInput.value, quantityInput.value, priceInput.value)">
+                    Save
+                </button>
             }
-            <button class="delete-btn" (click)="onDelete(product.id)">Delete</button>
+            <button class="delete-btn"
+                (click)="onDelete(product.id)">
+                Delete
+            </button>
         </div>
         </div>
     }

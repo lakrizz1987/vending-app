@@ -16,3 +16,14 @@ npm install
 
 # Start the development server
 ng serve
+
+
+🔹 Available Routes (Paths)
+
+| Route         | Component             | Description                |
+| ------------- | --------------------- | -------------------------- |
+| `/`           | `HomeComponent`       | Main home page
+| `/login`      | `LoginComponent`      | Login page                 |
+| `/settings`   | `SettingsComponent`   | Settings page edit products|
+| `/addProduct` | `AddProductComponent` | Page to add a new product  |
+

@@ -18,6 +18,14 @@ npm install
 ng serve
 
 
+🔑 Login Credentials
+
+Use the following default credentials to log in:
+
+Username: admin /	Password: admin
+
+
+
 🔹 Available Routes (Paths)
 
 | Route         | Component             | Description                |

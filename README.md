@@ -25,6 +25,16 @@ Use the following default credentials to log in:
 Username: admin /	Password: admin
 
 
+💰 Accepted Coins
+
+The vending machine currently accepts the following coins:
+
+acceptedCoins = {
+  BGN: [0.05, 0.1, 0.2, 0.5, 1, 2]
+};
+
+Note: Only BGN coins are supported for now.
+
 
 🔹 Available Routes (Paths)
 

@@ -1,0 +1,80 @@
+@use '../definition' as *;
+
+.error-page-container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background: $primaryBackroundColor;
+    padding: 40px;
+}
+
+.error-box {
+    text-align: center;
+    color: white;
+    background: $primaryBackroundColor;
+    border: 2px solid $borderColor;
+    padding: 40px 25px;
+    border-radius: 14px;
+    width: 50%;
+
+    @media (max-width: #{$maxTabletWidth}) {
+        width: 70%;
+    }
+
+    @media (max-width: #{$maxMobileWidth}) {
+        width: 90%;
+        padding: 25px;
+    }
+
+    .oops {
+        font-size: 26px;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+    }
+
+    .error-code {
+        font-size: 140px;
+        font-weight: bold;
+        position: relative;
+        margin: 0;
+        letter-spacing: 5px;
+
+        @media (max-width: #{$maxTabletWidth}) {
+            font-size: 110px;
+        }
+
+        @media (max-width: #{$maxMobileWidth}) {
+            font-size: 90px;
+        }
+    }
+
+    .not-found {
+        font-size: 26px;
+        margin-bottom: 30px;
+        font-weight: bold;
+    }
+
+    .back-btn {
+        padding: 12px 30px;
+        font-size: 20px;
+        font-weight: bold;
+        border-radius: 12px;
+        color: white;
+        background: transparent;
+        border: 2px solid white;
+        cursor: pointer;
+        text-transform: uppercase;
+        transition: 0.15s;
+
+        &:hover {
+            transform: scale(1.05);
+        }
+
+        &:active {
+            transform: translateY(4px);
+        }
+    }
+}

@@ -5,6 +5,7 @@ import { SettingsComponent } from './settings-component/settings.component';
 import { AddProduct } from './add-product/add-product.component';
 import { LoginComponent } from './login/login.component';
 import { authGuardFn } from './guards/auth-guard';
+import { NotFound } from './not-found/not-found';
 
 export const routes: Routes = [
     { path: '', component: VendingMachine },
@@ -12,4 +13,5 @@ export const routes: Routes = [
     { path: Paths.Settings, component: SettingsComponent, canActivate: [authGuardFn] },
     { path: Paths.AddProduct, component: AddProduct, canActivate: [authGuardFn] },
     { path: Paths.Login, component: LoginComponent },
+    { path: '**', component: NotFound }
 ];

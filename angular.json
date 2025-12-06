@@ -17,6 +17,7 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
+            "outputPath": "dist/vending-app",
             "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
@@ -50,7 +51,8 @@
                   "maximumError": "8kB"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "baseHref": "/vending-app/"
             },
             "development": {
               "optimization": false,

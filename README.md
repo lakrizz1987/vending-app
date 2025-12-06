@@ -1,7 +1,7 @@
 # VendingApp
 
 ## Description  
-VendingApp is a web application built with Angular. Its purpose is to simulate a vending machine / shop — with products, slots, and the ability to add/view products.  
+VendingApp is a web application built with Angular. Its purpose is to simulate a vending machine / shop — with products, slots, and the ability to add/edit products.  
 
 ## Features  
 - Single Page Application (SPA) built with Angular (TypeScript, HTML, SCSS).  

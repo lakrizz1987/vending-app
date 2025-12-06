@@ -2,7 +2,11 @@
   <div class="header">
     <H1>Vending APP</H1>
     @if (isUserLogged) {
-      <button [ngClass]="{'hide': !showLoginButton}" (click)="onLogout()">Log Out</button>
+      <div class="btn-container">
+        <button [ngClass]="{'hide': !showLoginButton}" (click)="goToCreate()">Add Products</button>
+        <button [ngClass]="{'hide': !showLoginButton}" (click)="goToSetting()">Settings</button>
+        <button [ngClass]="{'hide': !showLoginButton}" (click)="onLogout()">Log Out</button>
+      </div>
     }@else {
       <button [ngClass]="{'hide': !showLoginButton}" (click)="onLogin()">LogIn</button>
     }

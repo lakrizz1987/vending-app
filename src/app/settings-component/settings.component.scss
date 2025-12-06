@@ -117,4 +117,39 @@
         }
     }
 
+    .btn-container {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 40px;
+
+        .back-btn {
+            width: 20%;
+            padding: 15px;
+            font-size: 18px;
+            text-transform: uppercase;
+            border: none;
+            color: black;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            align-self: center;
+            background: $btnYellow;
+            transition: 0.10s;
+
+            &:hover {
+                transform: scale(1.02);
+            }
+
+            &:active {
+                transform: translateY(6px);
+            }
+
+            @media (max-width: #{$maxTabletWidth}) {
+                width: 40%;
+            }
+        }
+    }
+
 }

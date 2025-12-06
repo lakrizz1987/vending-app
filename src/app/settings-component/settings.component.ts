@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product, ProductService } from '../services/product-service';
+import { Router } from '@angular/router';
+import { Paths } from '../enums/Paths.enum';
 
 @Component({
   selector: 'app-settings-component',
@@ -11,7 +13,8 @@ export class SettingsComponent implements OnInit {
   products: Product[] = [];
 
   constructor(
-    private productService: ProductService
+    private productService: ProductService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -45,6 +48,10 @@ export class SettingsComponent implements OnInit {
 
     product.isEditing = false;
     this.productService.editProduct(product.id, name, qty, prc);
+  }
+
+  onBack() {
+    this.router.navigate([Paths.Home]);
   }
 
   isValidVendingPrice(price: number): boolean {

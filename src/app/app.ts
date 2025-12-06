@@ -39,4 +39,12 @@ export class App {
     sessionStorage.removeItem('user');
     this.router.navigate([Paths.Home]);
   }
+
+  goToCreate() {
+    this.router.navigate([Paths.AddProduct]);
+  }
+
+  goToSetting() {
+    this.router.navigate([Paths.Settings]);
+  }
 }
